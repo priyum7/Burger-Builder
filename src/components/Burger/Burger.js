@@ -8,8 +8,8 @@ export class Burger extends Component {
   }
 
   render() {
-    const transformedIngredients = Object.keys(this.props.ingredients).map(
-      (ingredient) => {
+    let transformedIngredients = Object.keys(this.props.ingredients)
+      .map((ingredient) => {
         return [...Array(this.props.ingredients[ingredient])].map(
           (_, index) => {
             return (
@@ -17,8 +17,16 @@ export class Burger extends Component {
             );
           }
         );
-      }
-    );
+      })
+      .reduce((prev, curr) => {
+        return [...prev, ...curr];
+      }, []);
+
+    if (transformedIngredients.length === 0) {
+      transformedIngredients = <p>Please start adding ingredients!</p>;
+    }
+
+    console.log(transformedIngredients);
 
     return (
       <div className={classes.Burger}>
