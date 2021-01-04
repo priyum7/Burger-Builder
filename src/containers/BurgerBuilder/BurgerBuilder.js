@@ -49,7 +49,7 @@ class BurgerBuilder extends Component {
   render() {
     return (
       <Fragment>
-        {this.state.orderProgress && (
+        {this.state.orderProgress || (
           <Modal>
             <OrderSummary ingredients={this.state.ingredients} />
           </Modal>
