@@ -3,10 +3,6 @@ import classes from "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 export class Burger extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let transformedIngredients = Object.keys(this.props.ingredients)
       .map((ingredient) => {

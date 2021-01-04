@@ -26,8 +26,11 @@ function BuildControls(props) {
           />
         );
       })}
-      <button className={classes.OrderButton} disabled={disableOrderButtonInfo}>
-        {" "}
+      <button
+        className={classes.OrderButton}
+        disabled={disableOrderButtonInfo}
+        onClick={props.orderProgress}
+      >
         Order Now!
       </button>
     </div>
