@@ -5,14 +5,13 @@ function BuildControl(props) {
   return (
     <div className={classes.BuildControl}>
       <div className={classes.Label}>{String(props.type).toUpperCase()}</div>
+      <button onClick={props.addIngredient}>+</button>
       <button
-        onClick={() => {
-          props.addIngredient();
-        }}
+        onClick={props.removeIngredient}
+        disabled={props.disableButtonInfo}
       >
-        +
+        -
       </button>
-      <button>-</button>
     </div>
   );
 }
