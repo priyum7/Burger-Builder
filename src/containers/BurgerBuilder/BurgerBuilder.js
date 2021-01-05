@@ -18,6 +18,12 @@ class BurgerBuilder extends Component {
     ordered: false,
   };
 
+  cancelOrderHandler = () => {
+    this.setState({
+      ordered: false,
+    });
+  };
+
   orderButtonHandler = () => {
     this.setState({
       ordered: true,
@@ -50,7 +56,10 @@ class BurgerBuilder extends Component {
   render() {
     return (
       <Fragment>
-        <Modal ordered={this.state.ordered}>
+        <Modal
+          ordered={this.state.ordered}
+          cancelOrderHandler={this.cancelOrderHandler}
+        >
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
