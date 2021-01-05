@@ -1,0 +1,14 @@
+.Button {
+  width: fit-content;
+  display: inline;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.Success {
+  color: green;
+}
+
+.Fail {
+  color: red;
+}
