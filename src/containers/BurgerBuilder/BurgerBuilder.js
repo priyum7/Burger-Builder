@@ -3,6 +3,7 @@ import Burger from "../../components/Burger/Burger.js";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
+
 const ingredientAmount = {
   meat: 55,
   cheese: 100,
@@ -14,12 +15,12 @@ class BurgerBuilder extends Component {
   state = {
     ingredients: { meat: 0, cheese: 0, salad: 0, bacon: 0 },
     totalAmount: 0,
-    orderProgress: 0,
+    ordered: false,
   };
 
   orderButtonHandler = () => {
     this.setState({
-      orderProgress: 1,
+      ordered: true,
     });
   };
 
@@ -49,11 +50,9 @@ class BurgerBuilder extends Component {
   render() {
     return (
       <Fragment>
-        {this.state.orderProgress ? (
-          <Modal>
-            <OrderSummary ingredients={this.state.ingredients} />
-          </Modal>
-        ) : null}
+        <Modal ordered={this.state.ordered}>
+          <OrderSummary ingredients={this.state.ingredients} />
+        </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           ingredients={this.state.ingredients}
